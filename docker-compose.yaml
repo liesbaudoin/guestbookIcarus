@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  database:
+    image: postgres:13-alpine
+    environment:
+      POSTGRES_USER: main
+      POSTGRES_PASSWORD: main
+      POSTGRES_DB: main
+      PGDATA: /var/lib/postgresql/data/pgdata
+    # poort 5432 op de host verwijst naar 5432 van de container
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./var/postgres/data:/var/lib/postgresql/data/pgdata
